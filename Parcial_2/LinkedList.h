@@ -34,8 +34,7 @@ struct LinkedList
 
 
 //Publicas
-int ll_map(LinkedList* this, int (*pFunc)(void*));
-int ll_count(LinkedList* this,int (*fn)(void*));
+
 LinkedList* ll_filter(LinkedList* this,int (*fn)(void*));
 LinkedList* ll_newLinkedList(void);
 int ll_len(LinkedList* this);                                       //devuelve el valor del campo int size

@@ -32,13 +32,27 @@ typedef struct
     int idEditorial;
 
 }eLibro;
+
+
+
+/// @fn eLibro libros_new*()
+/// @brief contructor por defecto
+///
+/// @return devuelve el libro con los datos en defecto.
 eLibro* libros_new();
+
+/// @fn int libros_comparebyAutor(void*, void*)
+/// @brief
+///
+/// @param valor1
+/// @param valor2
+/// @return
 int libros_comparebyAutor(void* valor1, void* valor2);
 
 int BuscaMismaEditorialImprime(LinkedList* editorial, int idComparacion,eLibro* auxlibro);
 
+int fnMinotauro(void* valor1,void* valor2);
 
-int fnMinotauro(void* valor1);
 
 void vuelo_delete(eLibro* empleado);
 void imprimirLibros(eLibro* this, eEditorial* piloto);

@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,12 +24,14 @@ int main(void)
 
 	do
 	{
-		if (getNumero(&option, "1.Cargar archivo Libros:\n"
-						"2.Cargar archivo Editoriales:\n"
-						"3. Ordenar la lista generada en el ítem anterior:\n"
-						"4. Imprimir por pantalla todos los datos de los libros.:\n"
-						"5.Realizar un listado de los libros de la editorial MINOTAURO. \n"
-						"0.SALIR\n", "Error opcion incorrecta", 0, 10, 3) == -1)
+		if (getNumero(&option,
+						"1.Cargar archivo Libros:\n"
+										"2.Cargar archivo Editoriales:\n"
+										"3. Ordenar la lista generada en el ítem anterior:\n"
+										"4. Imprimir por pantalla todos los datos de los libros.:\n"
+										"5.Realizar un listado de los libros de la editorial MINOTAURO. \n"
+										"6. Generar el archivo de salida “mapeado.csv” luego de aplicar la función map. \n"
+										"0.SALIR\n", "Error opcion incorrecta", 0, 10, 3) == -1)
 		{
 			printf("error");
 		}
@@ -38,9 +39,9 @@ int main(void)
 		{
 		case 1:
 
-
 			if (flagArchivo == 0
-							&& controller_loadFromText(listaLibros,parser_FromTextLibros)!= -1)
+							&& controller_loadFromText(listaLibros, parser_FromTextLibros)
+											!= -1)
 			{
 				printf("correcto\n");
 				flagArchivo = 1;
@@ -53,58 +54,56 @@ int main(void)
 			break;
 		case 2:
 
-			if (flagArchivo1==0&&controller_loadFromText(listaEditoriales, parser_FromTextEditorial)!=-1)
+			if (flagArchivo1 == 0
+							&& controller_loadFromText(listaEditoriales,
+											parser_FromTextEditorial) != -1)
 
-					{
-						printf("correcto\n");
-						flagArchivo1 = 1;
-					}
-					else
-					{
-						printf("no se puedo cargar\n");
-					}
-
-
-			break;
-		case 3://ordenamiento “Autor” de manera ascendente.
-if(controller_sortLibros(listaLibros))
-{
-	printf("no se puedo cargar\n");
-}
-
-
+			{
+				printf("correcto\n");
+				flagArchivo1 = 1;
+			}
+			else
+			{
+				printf("no se puedo cargar\n");
+			}
 
 			break;
-		case 4://Imprimir por pantalla todos los datos de los libros.
-			if(controller_imprimirLibros(listaLibros, listaEditoriales) != 0)
+		case 3: //ordenamiento “Autor” de manera ascendente.
+			if (controller_sortLibros(listaLibros))
+			{
+				printf("no se puedo cargar\n");
+			}
+
+			break;
+		case 4: //Imprimir por pantalla todos los datos de los libros.
+			if (controller_imprimirLibros(listaLibros, listaEditoriales) != 0)
 			{
 				printf("no se puedo cargar\n");
 			}
 
 			break;
 		case 5:
-			if(controller_filterLibros(listaLibros, listaEditoriales)!= 0)
+			if (controller_filterLibros(listaLibros, listaEditoriales) != 0)
 			{
 				printf("no se puedo cargar\n");
 			}
 
-
-
 			break;
 		case 6:
 
-
-			controller_saveMap(listaLibros,listaEditoriales);
-
+			if (controller_saveMap(listaLibros)!= 0)
+			{
+				printf("no se pudo generrar la lista\n");
+			}
 
 			break;
 		case 0:
 
 			if (ll_deleteLinkedList(listaLibros) != -1
-							&& ll_deleteLinkedList(listaEditoriales)!= -1)
-					{
-						printf("el programa se cerro exitosamente");
-					}
+							&& ll_deleteLinkedList(listaEditoriales) != -1)
+			{
+				printf("el programa se cerro exitosamente");
+			}
 
 			break;
 

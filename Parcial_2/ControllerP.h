@@ -3,7 +3,7 @@
 #include "LinkedList.h"
 #include "parserParcial2.h"
 int fMapeado(void* this);
-int controller_saveMap(LinkedList* lista, LinkedList* editorial);
+int controller_saveMap(LinkedList* lista);
 /// @fn int controller_saveAsText(char*, LinkedList*)
 /// @brief
 ///

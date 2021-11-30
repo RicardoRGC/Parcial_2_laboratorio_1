@@ -47,7 +47,7 @@ int fMapeado(void* this)
 	}
 	return rtn;
 }
-int controller_saveMap(LinkedList* lista, LinkedList* editorial)
+int controller_saveMap(LinkedList* lista)
 {
 	int rtn = -1;
 
@@ -56,10 +56,9 @@ int controller_saveMap(LinkedList* lista, LinkedList* editorial)
 
 	//	LinkedList*listaClonada = ll_clone(lista);//clonarla para no modificar la principal.
 
-		ll_map(lista, fMapeado);
+		rtn=ll_map(lista, fMapeado);
 
-		controller_imprimirLibros(lista, editorial);
-		rtn=controller_saveAsText("mapead.csv", lista);
+		controller_saveAsText("mapead.csv", lista);
 
 	}
 	return rtn;
@@ -114,7 +113,7 @@ int controller_filterLibros(LinkedList* listaLibros, LinkedList* Editorial)
 
 	LinkedList*listaFiltrados = ll_filter(listaLibros, fnMinotauro);
 
-	if (listaFiltrados != NULL&& 	controller_saveAsText("MINOTAURO.", listaFiltrados)!=-1)
+	if (listaFiltrados != NULL&& 	controller_saveAsText("MINOTAURO.csv", listaFiltrados)!=-1)
 	{
 
 

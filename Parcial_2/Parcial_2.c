@@ -76,17 +76,22 @@ if(controller_sortLibros(listaLibros))
 
 			break;
 		case 4://Imprimir por pantalla todos los datos de los libros.
-			if(controller_imprimirLibros(listaLibros, listaEditoriales))
+			if(controller_imprimirLibros(listaLibros, listaEditoriales) != 0)
 			{
 				printf("no se puedo cargar\n");
 			}
 
 			break;
 		case 5:
-			if(controller_filterLibros(listaLibros, listaEditoriales))
+			if(controller_filterLibros(listaLibros, listaEditoriales)!= 0)
 			{
 				printf("no se puedo cargar\n");
 			}
+			else
+			{
+
+			}
+
 
 
 			break;

@@ -13,16 +13,61 @@
 
 #define REINTENTOS 3
 
+int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
+{
+	int rtn = -1;
+	int tamLista;
+	    int id;
+	    char titulo[20];
+	    char autor[20];
+	    float precio;
+	    int idEditorial;
+
+	if (path != NULL && pArrayListEmployee != NULL)
+	{
+
+		tamLista = ll_len(pArrayListEmployee);
+
+		FILE*pFile = fopen(path, "w");
+
+		if (pFile != NULL)
+		{
+
+		  	eLibro* libro = libros_new();
+
+			for (int i = 0; i < tamLista; i++)
+			{
+				libro = (eLibro*) ll_get(pArrayListEmployee, i);
+
+				if (libros_getAutor(libro, autor)!= -1
+								&& libros_getId(libro, &id)!= -1
+								&& libros_getIdEditorial(libro, &idEditorial)!=-1
+								&& libros_getPrecio(libro, &precio)!=-1
+								&&libros_getTitulo(libro, titulo)!=-1)
+				{
+					fprintf(pFile, "%d,%s,%s,%.2f,%d\n", id,titulo,autor,precio, idEditorial); //Se escribe al archivo
+				}
+
+			}
+			rtn = 0;
+			fclose(pFile);
+		}
+
+	}
+
+	return rtn;
+}
 int controller_filterLibros(LinkedList* listaLibros, LinkedList* Editorial)
 {
 	int rtn = -1;
 
 	LinkedList*listaFiltrados = ll_filter(listaLibros, fnMinotauro);
 
-	if (listaFiltrados != NULL)
+	if (listaFiltrados != NULL&& 	controller_saveAsText("MINOTAURO.", listaFiltrados)!=-1)
 	{
 
-		controller_imprimirLibros(listaFiltrados, Editorial);
+
+		rtn=controller_imprimirLibros(listaFiltrados, Editorial);
 	}
 
 	return rtn;
@@ -77,9 +122,7 @@ int controller_loadFromText(LinkedList* pArrayListEmployee,
 
 	FILE*pFile;
 
-	//if ((strcmp(NombreArchivo, "libros.csv") == 0
-				//	|| strcmp(NombreArchivo, "editoriales.csv") == 0))
-	{
+
 
 		pFile = fopen(NombreArchivo, "r");
 
@@ -90,7 +133,7 @@ int controller_loadFromText(LinkedList* pArrayListEmployee,
 
 		}
 
-	}
+
 	return rtn;
 }
 int controller_loadFromTextVuelos(char* path, LinkedList* pArrayListEmployee)
@@ -112,7 +155,7 @@ int controller_loadFromTextVuelos(char* path, LinkedList* pArrayListEmployee)
 int controller_imprimirLibros(LinkedList* libros, LinkedList* editorial)
 {
 
-	int rtn = -1;
+	int rtn =-1;
 
 	eLibro*auxLibros;
 

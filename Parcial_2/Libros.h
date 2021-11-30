@@ -32,6 +32,7 @@ typedef struct
     int idEditorial;
 
 }eLibro;
+eLibro* libros_new();
 int libros_comparebyAutor(void* valor1, void* valor2);
 
 int BuscaMismaEditorialImprime(LinkedList* editorial, int idComparacion,eLibro* auxlibro);

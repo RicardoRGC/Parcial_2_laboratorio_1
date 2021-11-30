@@ -12,14 +12,65 @@
 #define TAM 20
 
 #define REINTENTOS 3
+int fMapeado(void* this)
+{
+	/*
+	 * * PLANETA: 20% (si el monto es mayor o igual a $300)  id 1
+	 * SIGLO XXI EDITORES: 10% (si el monto es menor o igual a $200)   id 2
+	 */
+	int idEditorial;
+	float precio;
+	float descuento;
+	int rtn = -1;
 
+	if (this != NULL)
+	{
+		libros_getIdEditorial(this, &idEditorial);
+		libros_getPrecio(this, &precio);
+
+		if (idEditorial == 1 && precio >= 300)
+		{
+
+			descuento = precio - (precio * 20 / 100);
+			rtn = libros_setPrecio(this, descuento);
+		}
+		else
+		{
+			if (idEditorial == 2 && precio <= 200)
+			{
+				descuento = precio - (precio * 10 / 100);
+				rtn = libros_setPrecio(this, descuento);
+			}
+		}
+
+
+	}
+	return rtn;
+}
+int controller_saveMap(LinkedList* lista, LinkedList* editorial)
+{
+	int rtn = -1;
+
+	if (lista != NULL)
+	{
+
+	//	LinkedList*listaClonada = ll_clone(lista);//clonarla para no modificar la principal.
+
+		ll_map(lista, fMapeado);
+
+		controller_imprimirLibros(lista, editorial);
+		rtn=controller_saveAsText("mapead.csv", lista);
+
+	}
+	return rtn;
+}
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
 	int rtn = -1;
 	int tamLista;
 	    int id;
-	    char titulo[20];
-	    char autor[20];
+	    char titulo[50];
+	    char autor[50];
 	    float precio;
 	    int idEditorial;
 

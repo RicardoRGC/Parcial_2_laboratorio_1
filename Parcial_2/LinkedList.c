@@ -6,6 +6,23 @@
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex, void* pElement);
 
+int ll_map(LinkedList* this, int (*pFunc)(void*))
+{
+    int returnAux =-1;
+
+    if(this != NULL && pFunc != NULL)
+    {
+        for(int i = 0 ; i< ll_len(this);  i++)
+        {
+
+             pFunc(ll_get(this,i));
+
+        }
+        returnAux=0;
+    }
+    return returnAux;
+}
+
 LinkedList* ll_filter(LinkedList* this, int (*fn)(void*))
 {
 	LinkedList*newList = NULL;

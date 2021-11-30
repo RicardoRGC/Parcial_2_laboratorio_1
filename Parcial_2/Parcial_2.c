@@ -87,11 +87,14 @@ if(controller_sortLibros(listaLibros))
 			{
 				printf("no se puedo cargar\n");
 			}
-			else
-			{
 
-			}
 
+
+			break;
+		case 6:
+
+
+			controller_saveMap(listaLibros,listaEditoriales);
 
 
 			break;

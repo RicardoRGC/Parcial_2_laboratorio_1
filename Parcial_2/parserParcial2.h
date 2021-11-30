@@ -14,7 +14,12 @@
  */
 int parser_FromTextEditorial(FILE* pFile , LinkedList* pArrayListEmployee);
 
-
+/// @fn int parser_FromTextLibros(FILE*, LinkedList*)
+/// @brief
+///
+/// @param pFile
+/// @param pArrayListEmployee
+/// @return
 int parser_FromTextLibros(FILE* pFile, LinkedList* pArrayListEmployee);
 
 #endif /* PARSERMODELO_H_ */

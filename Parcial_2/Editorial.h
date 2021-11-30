@@ -23,12 +23,17 @@ typedef struct
 /// compara y ordena de a-z
 /// @return 0 de la a-z mayor que 0 z-a
 int libros_comparebyautor(void* valor1, void* valor2);
-
+///
+///
 /// @param this
-/// imprime un solo empleado
+/// imprime uno solo
+///
 void printOne(eEditorial* this);
 
 
+/// @fn eEditorial editorial_new*()
+/// @brief
+///
 /// @return
 eEditorial* editorial_new();
 /// @param idStr

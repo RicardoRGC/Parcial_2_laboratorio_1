@@ -2,9 +2,28 @@
 #include "B.h"
 #include "LinkedList.h"
 #include "parserParcial2.h"
-int controller_saveAsText(char* path, LinkedList* pArrayListEmployee);
-int controller_filterLibros(LinkedList* listaLibros, LinkedList* Editorial);
 
+
+/// @fn int controller_saveAsText(char*, LinkedList*)
+/// @brief
+///
+/// @param path
+/// @param pArrayListEmployee
+/// @return
+int controller_saveAsText(char* path, LinkedList* pArrayListEmployee);
+/// @fn int controller_filterLibros(LinkedList*, LinkedList*)
+/// @brief
+///
+/// @param listaLibros
+/// @param Editorial
+/// @return
+int controller_filterLibros(LinkedList* listaLibros, LinkedList* Editorial);
+/// @fn int controller_imprimirLibros(LinkedList*, LinkedList*)
+/// @brief
+///
+/// @param listaVuelos
+/// @param pilotos
+/// @return
 int controller_imprimirLibros(LinkedList* listaVuelos,LinkedList* pilotos);
 
 

@@ -34,8 +34,14 @@ struct LinkedList
 
 
 //Publicas
-
-LinkedList* ll_filter(LinkedList* this, int (*fn)(void*,void*),void* elemento);
+/// @fn LinkedList ll_filter*(LinkedList*, int(*)(void*, void*), void*)
+/// @brief
+/// filtra la lista con la fn y el elemento criterio.
+/// @param this
+/// @param fn
+/// @param elemento
+/// @return
+LinkedList* ll_filter(LinkedList* this, int (*fn)(void*));
 LinkedList* ll_newLinkedList(void);
 int ll_len(LinkedList* this);                                       //devuelve el valor del campo int size
 Node* test_getNode(LinkedList* this, int nodeIndex);

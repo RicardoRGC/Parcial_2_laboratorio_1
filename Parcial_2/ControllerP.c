@@ -61,7 +61,7 @@ int controller_filterLibros(LinkedList* listaLibros, LinkedList* Editorial)
 {
 	int rtn = -1;
 
-	LinkedList*listaFiltrados = ll_filter(listaLibros, fnMinotauro,4);
+	LinkedList*listaFiltrados = ll_filter(listaLibros, fnMinotauro);
 
 	if (listaFiltrados != NULL&& 	controller_saveAsText("MINOTAURO.", listaFiltrados)!=-1)
 	{

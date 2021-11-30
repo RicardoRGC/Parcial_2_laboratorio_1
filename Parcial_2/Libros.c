@@ -103,13 +103,14 @@ int BuscaMismaEditorialImprime(LinkedList* editorial, int idComparacion,
  return rtn;
  }
  */
-int fnMinotauro(void* valor1,void* valor2)
+int fnMinotauro(void* valor1)
 {
 	int rtn = 0;
 	eLibro*libro;
 
+
 	libro = (eLibro*) valor1; //castea
-	if (libro->idEditorial == valor2)
+	if (libro->idEditorial == 4)
 	{
 		rtn = 1;
 	}

@@ -37,7 +37,7 @@ int parser_FromTextEditorial(FILE* pFile, LinkedList* pArrayListEmployee) // rec
 
 			if (conteoLineaArchivo == 2 && validarCadenaConEspacios(nombreStr)&&validarCadenaNumerica(idStr))
 			{
-					printf("%s\n",nombreStr);
+					//printf("%s\n",nombreStr);
 
 				eEditorial*editor;
 				editor = editorial_newParametros(idStr, nombreStr);
@@ -88,7 +88,7 @@ int parser_FromTextLibros(FILE* pFile, LinkedList* pArrayListEmployee) // recorr
 
 			if (conteoLineaArchivo == 5 && validarCadenaConEspacios(titulo)&& validarCadenaNumerica(id) && validarCadenaConEspacios(autor)&& ValidarCharNumerofloat(precio))
 			{
-				printf("%s\n",titulo);
+			//	printf("%s\n",titulo);
 
 				if (ll_add(pArrayListEmployee,
 								libros_newParametros(id, titulo, autor, precio, idEditorial))

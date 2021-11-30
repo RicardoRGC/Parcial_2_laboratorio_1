@@ -6,7 +6,7 @@
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex, void* pElement);
 
-LinkedList* ll_filter(LinkedList* this, int (*fn)(void*,void*),void* elemento)
+LinkedList* ll_filter(LinkedList* this, int (*fn)(void*))
 {
 	LinkedList*newList = NULL;
 	int len;
@@ -18,7 +18,7 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void*,void*),void* elemento)
 		len = ll_len(this);
 		for (i = 0; i < len; i++)
 		{
-			if (fn(ll_get(this, i),elemento ))
+			if (fn(ll_get(this, i) ))
 			{
 				ll_add(newList, ll_get(this, i));
 			}
